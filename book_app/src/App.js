@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom"
 
-function App() {
+import { Header } from './components/Header'
+import { Signup } from './components/auth/Signup'
+import { Login } from './components/auth/Login'
+
+export const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header
+          logo="☘️BIBLEAF"
+        />
+        <Routes>
+          <Route exact path="/signup" element={<Signup text={'新規登録'} />} />
+          <Route exact path="/login" element={<Login text={'ログイン'} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
-
-export default App;
